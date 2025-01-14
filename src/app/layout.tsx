@@ -1,3 +1,4 @@
+import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { Noto_Sans_TC } from 'next/font/google';
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="z-hant">
       <body className={noto.className}>
+        <CssBaseline />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </AppRouterCacheProvider>
