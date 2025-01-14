@@ -1,11 +1,15 @@
+import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { Noto_Sans_TC } from 'next/font/google';
 
+import theme from '@/theme';
+
 import type { Metadata } from 'next';
 
-const notoSansTC = Noto_Sans_TC({
-  weight: ['400', '500', '700'],
+const noto = Noto_Sans_TC({
+  weight: ['400', '700'],
   subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -20,8 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="z-hant">
-      <body className={notoSansTC.className}>
-        <AppRouterCacheProvider>{children}+ </AppRouterCacheProvider>
+      <body className={noto.className}>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
