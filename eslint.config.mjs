@@ -30,11 +30,13 @@ const eslintConfig = [
             'parent',
             'sibling',
             'index',
+            'type',
           ],
           'newlines-between': 'always',
           alphabetize: {
             order: 'asc',
           },
+          warnOnUnassignedImports: true,
         },
       ],
     },
