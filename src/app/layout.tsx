@@ -2,7 +2,6 @@ import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { Noto_Sans_TC } from 'next/font/google';
-// TODO: 加入 CSS Baseline
 
 import Navbar from '@/components/Navbar';
 import theme from '@/theme';
@@ -13,6 +12,7 @@ const noto = Noto_Sans_TC({
   weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-noto',
 });
 
 export const metadata: Metadata = {

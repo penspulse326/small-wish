@@ -14,12 +14,13 @@ export const NavContainer = styled(Box)`
   width: 100%;
   max-width: ${({ theme }) => theme.breakpoints.values.lg}px;
   margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing(2)};
+  padding: ${({ theme }) => theme.spacing(1)};
 `;
 
 export const LogoContainer = styled(Box)`
   display: flex;
   align-items: center;
+  padding: 0 ${({ theme }) => theme.spacing(1)};
   cursor: pointer;
 `;
 
@@ -31,4 +32,10 @@ export const NavItemsContainer = styled(Box)`
   ${({ theme }) => theme.breakpoints.down('md')} {
     display: none;
   }
+`;
+
+export const ActionContainer = styled(Box)`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing(1)};
 `;
