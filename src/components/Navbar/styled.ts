@@ -1,5 +1,7 @@
+// components/Navbar/styled.ts
 import { AppBar, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import Link from 'next/link';
 
 export const StyledAppBar = styled(AppBar)`
   background-color: ${({ theme }) => theme.palette.background.paper};
@@ -38,4 +40,28 @@ export const ActionContainer = styled(Box)`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing(1)};
+`;
+
+export const NavLink = styled(Link)`
+  color: ${({ theme }) => theme.palette.primary.main};
+  text-decoration: none;
+  padding: ${({ theme }) => theme.spacing(1, 2)};
+  font-family: inherit;
+  position: relative; // 為底線定位做準備
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 4px;
+    left: 50%;
+    background-color: ${({ theme }) => theme.palette.primary.main};
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+
+  &:hover::after {
+    width: calc(100% - ${({ theme }) => theme.spacing(4)}); // 減去左右 padding
+  }
 `;

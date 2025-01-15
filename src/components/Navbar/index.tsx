@@ -1,17 +1,16 @@
 // components/Navbar/index.tsx
 'use client';
 
-import LightModeIcon from '@mui/icons-material/LightMode'; // 新增
+import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   IconButton,
   Typography,
   Menu,
   MenuItem,
-  Button,
   useColorScheme,
 } from '@mui/material';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useState } from 'react';
 
 import {
@@ -19,11 +18,11 @@ import {
   NavContainer,
   LogoContainer,
   NavItemsContainer,
-  ActionContainer, // 新增
+  ActionContainer,
+  NavLink,
 } from './styled';
 
 function Navbar() {
-  const router = useRouter();
   const { mode, setMode } = useColorScheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -37,32 +36,24 @@ function Navbar() {
     setAnchorEl(null);
   }
 
-  function handleNavigate(path: string) {
-    router.push(path);
-    handleMenuClose();
-  }
-
-  if (!mode) {
-    return null;
-  }
-
   return (
     <StyledAppBar position="sticky">
       <NavContainer>
-        <LogoContainer onClick={() => handleNavigate('/')}>
-          <Typography color="primary" variant="h6">
-            Small Wish
-          </Typography>
-        </LogoContainer>
+        <Link href="/" legacyBehavior passHref>
+          <LogoContainer>
+            <Typography color="primary" variant="h6">
+              Small Wish
+            </Typography>
+          </LogoContainer>
+        </Link>
 
         <ActionContainer>
           <NavItemsContainer>
-            <Button onClick={() => handleNavigate('/wishes')}>所有願望</Button>
-            <Button onClick={() => handleNavigate('/create')}>許願</Button>
-            <Button onClick={() => handleNavigate('/login')}>登入</Button>
+            <NavLink href="/wishes">所有願望</NavLink>
+            <NavLink href="/create">許願</NavLink>
+            <NavLink href="/login">登入</NavLink>
           </NavItemsContainer>
 
-          {/* 主題切換按鈕 */}
           <IconButton
             onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
             sx={{ color: 'primary.main' }}
@@ -70,7 +61,6 @@ function Navbar() {
             <LightModeIcon />
           </IconButton>
 
-          {/* 漢堡選單按鈕 */}
           <IconButton
             onClick={handleMenuOpen}
             sx={{
@@ -83,11 +73,15 @@ function Navbar() {
         </ActionContainer>
 
         <Menu anchorEl={anchorEl} onClose={handleMenuClose} open={isMenuOpen()}>
-          <MenuItem onClick={() => handleNavigate('/wishes')}>
+          <MenuItem component={Link} href="/wishes">
             所有願望
           </MenuItem>
-          <MenuItem onClick={() => handleNavigate('/create')}>許願</MenuItem>
-          <MenuItem onClick={() => handleNavigate('/login')}>登入</MenuItem>
+          <MenuItem component={Link} href="/create">
+            許願
+          </MenuItem>
+          <MenuItem component={Link} href="/login">
+            登入
+          </MenuItem>
         </Menu>
       </NavContainer>
     </StyledAppBar>
