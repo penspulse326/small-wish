@@ -52,9 +52,9 @@ function Navbar() {
 
         <ActionContainer>
           <NavItemsContainer>
-            <NavLink href="/wishes">所有願望</NavLink>
-            <NavLink href="/create">許願</NavLink>
-            <NavLink href="/login">登入</NavLink>
+            <NavLink href="/all-wishes">所有願望</NavLink>
+            <NavLink href="/make-a-wish">許願</NavLink>
+            <NavLink href="/sign-in">登入</NavLink>
           </NavItemsContainer>
 
           <IconButton
@@ -76,13 +76,21 @@ function Navbar() {
         </ActionContainer>
 
         <Menu anchorEl={anchorEl} onClose={handleMenuClose} open={isMenuOpen()}>
-          <MenuItem component={Link} href="/wishes">
+          <MenuItem
+            component={Link}
+            href="/all-wishes"
+            onClick={handleMenuClose}
+          >
             所有願望
           </MenuItem>
-          <MenuItem component={Link} href="/create">
+          <MenuItem
+            component={Link}
+            href="/make-a-wish"
+            onClick={handleMenuClose}
+          >
             許願
           </MenuItem>
-          <MenuItem component={Link} href="/login">
+          <MenuItem component={Link} href="/sign-in" onClick={handleMenuClose}>
             登入
           </MenuItem>
         </Menu>

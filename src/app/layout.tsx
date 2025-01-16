@@ -9,7 +9,7 @@ import theme from '@/theme';
 import type { Metadata } from 'next';
 
 const noto = Noto_Sans_TC({
-  weight: ['400', '700'],
+  weight: ['400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-noto',
