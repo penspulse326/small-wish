@@ -1,12 +1,17 @@
+'use client';
+
+import React from 'react';
+
+import { AuthContainer, AuthWrapper } from './styled';
+
 export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      這是登入註冊的 layout
-      {children}
-    </div>
+    <AuthContainer>
+      <AuthWrapper>{children}</AuthWrapper>
+    </AuthContainer>
   );
 }
