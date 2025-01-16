@@ -9,6 +9,7 @@ export const AuthContainer = styled(Box)`
   min-height: 100dvh;
   padding: ${({ theme }) => theme.spacing(3, 1)};
   background-color: ${({ theme }) => theme.palette.background.default};
+  color: ${({ theme }) => theme.palette.text.primary};
 `;
 
 export const AuthWrapper = styled(Box)`

@@ -28,7 +28,13 @@ export default function SignUp() {
 
   return (
     <>
-      <Typography align="center" component="h1" gutterBottom variant="h4">
+      <Typography
+        align="center"
+        color="text"
+        component="h1"
+        gutterBottom
+        variant="h4"
+      >
         註冊帳號
       </Typography>
       <Form onSubmit={handleSubmit}>
