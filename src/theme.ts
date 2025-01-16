@@ -22,6 +22,7 @@ const theme = createTheme({
         },
       },
     },
+
     dark: {
       palette: {
         primary: {
@@ -42,9 +43,11 @@ const theme = createTheme({
       },
     },
   },
+
   cssVariables: {
     colorSchemeSelector: 'class',
   },
+
   typography: {
     fontFamily: `var(--font-noto)`,
   },

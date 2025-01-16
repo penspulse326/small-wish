@@ -1,4 +1,3 @@
-// components/Navbar/index.tsx
 'use client';
 
 import LightModeIcon from '@mui/icons-material/LightMode';
@@ -36,6 +35,10 @@ function Navbar() {
     setAnchorEl(null);
   }
 
+  function handleToggleThemeMode() {
+    setMode(mode === 'light' ? 'dark' : 'light');
+  }
+
   return (
     <StyledAppBar position="sticky">
       <NavContainer>
@@ -55,7 +58,7 @@ function Navbar() {
           </NavItemsContainer>
 
           <IconButton
-            onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
+            onClick={handleToggleThemeMode}
             sx={{ color: 'primary.main' }}
           >
             <LightModeIcon />
