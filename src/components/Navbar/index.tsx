@@ -11,6 +11,7 @@ import {
   useColorScheme,
 } from '@mui/material';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { PAGE } from '@/constants/routes';
@@ -25,6 +26,7 @@ import {
 } from './styled';
 
 function Navbar() {
+  const pathname = usePathname();
   const { mode, setMode } = useColorScheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -42,6 +44,10 @@ function Navbar() {
 
   function handleToggleThemeMode() {
     setMode(mode === 'light' ? 'dark' : 'light');
+  }
+
+  if (pathname?.startsWith('/sign-')) {
+    return null;
   }
 
   return (

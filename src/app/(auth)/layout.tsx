@@ -1,12 +1,26 @@
+'use client';
+
+import { Typography } from '@mui/material';
+import React from 'react';
+
+import { AuthContainer, HomeLink, AuthWrapper } from './styled';
+
 export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      這是登入註冊的 layout
-      {children}
-    </div>
+    <AuthContainer>
+      <AuthWrapper>
+        <HomeLink href="/">
+          <Typography color="primary" variant="h3">
+            Small Wish
+          </Typography>
+        </HomeLink>
+
+        {children}
+      </AuthWrapper>
+    </AuthContainer>
   );
 }
