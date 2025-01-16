@@ -48,11 +48,17 @@ export const ActionContainer = styled(Box)`
 export const NavLink = styled(Link)`
   position: relative;
 
+  display: block;
+
   padding: ${({ theme }) => theme.spacing(1, 2)};
 
   color: ${({ theme }) => theme.palette.primary.main};
   text-decoration: none;
   font-family: inherit;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.action.hover};
+  }
 
   &::after {
     content: '';
