@@ -13,6 +13,8 @@ import {
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { PAGE } from '@/constants/routes';
+
 import {
   StyledAppBar,
   NavContainer,
@@ -55,9 +57,9 @@ function Navbar() {
 
         <ActionContainer>
           <NavItemsContainer>
-            <NavLink href="/all-wishes">所有願望</NavLink>
-            <NavLink href="/make-a-wish">許願</NavLink>
-            <NavLink href="/sign-in">登入</NavLink>
+            <NavLink href={PAGE._ALL_WISHES}>所有願望</NavLink>
+            <NavLink href={PAGE._MAKE_A_WISH}>許願</NavLink>
+            <NavLink href={PAGE._SIGN_IN}>登入</NavLink>
           </NavItemsContainer>
 
           <IconButton
@@ -116,16 +118,22 @@ function Navbar() {
                 gap: 2,
               }}
             >
-              <NavLink href="/all-wishes" onClick={() => handleMenuItemClick()}>
+              <NavLink
+                href={PAGE._ALL_WISHES}
+                onClick={() => handleMenuItemClick()}
+              >
                 所有願望
               </NavLink>
               <NavLink
-                href="/make-a-wish"
+                href={PAGE._MAKE_A_WISH}
                 onClick={() => handleMenuItemClick()}
               >
                 許願
               </NavLink>
-              <NavLink href="/sign-in" onClick={() => handleMenuItemClick()}>
+              <NavLink
+                href={PAGE._SIGN_IN}
+                onClick={() => handleMenuItemClick()}
+              >
                 登入
               </NavLink>
             </Box>
