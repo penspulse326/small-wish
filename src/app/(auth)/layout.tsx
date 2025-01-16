@@ -1,8 +1,9 @@
 'use client';
 
+import { Typography } from '@mui/material';
 import React from 'react';
 
-import { AuthContainer, AuthWrapper } from './styled';
+import { AuthContainer, HomeLink, AuthWrapper } from './styled';
 
 export default function AuthLayout({
   children,
@@ -11,7 +12,15 @@ export default function AuthLayout({
 }) {
   return (
     <AuthContainer>
-      <AuthWrapper>{children}</AuthWrapper>
+      <AuthWrapper>
+        <HomeLink href="/">
+          <Typography color="primary" variant="h3">
+            Small Wish
+          </Typography>
+        </HomeLink>
+
+        {children}
+      </AuthWrapper>
     </AuthContainer>
   );
 }

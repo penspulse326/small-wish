@@ -1,9 +1,16 @@
 'use client';
 
+import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Title, Form, InputGroup, Input, Button, LinkText } from '../styled';
+import {
+  Form,
+  InputGroup,
+  StyledTextField,
+  SubmitButton,
+  LinkText,
+} from '../styled';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
@@ -21,39 +28,46 @@ export default function SignUp() {
 
   return (
     <>
-      <Title>註冊帳號</Title>
+      <Typography align="center" component="h1" gutterBottom variant="h4">
+        註冊帳號
+      </Typography>
       <Form onSubmit={handleSubmit}>
         <InputGroup>
-          <Input
+          <StyledTextField
+            fullWidth
             id="email"
+            label="電子信箱"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="電子信箱"
             required
             type="email"
             value={email}
           />
-          <Input
+          <StyledTextField
+            fullWidth
             id="password"
+            label="密碼"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="密碼"
             required
             type="password"
             value={password}
           />
-          <Input
+          <StyledTextField
+            fullWidth
             id="confirm-password"
+            label="確認密碼"
             name="confirm-password"
             onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="確認密碼"
             required
             type="password"
             value={confirmPassword}
           />
         </InputGroup>
 
-        <Button type="submit">註冊</Button>
+        <SubmitButton fullWidth size="large" type="submit" variant="contained">
+          註冊
+        </SubmitButton>
 
         <LinkText>
           <Link href="/sign-in">已有帳號？立即登入</Link>

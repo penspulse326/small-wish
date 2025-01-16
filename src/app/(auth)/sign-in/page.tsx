@@ -1,9 +1,16 @@
 'use client';
 
+import { Typography } from '@mui/material';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Title, Form, InputGroup, Input, Button, LinkText } from '../styled';
+import {
+  Form,
+  InputGroup,
+  StyledTextField,
+  SubmitButton,
+  LinkText,
+} from '../styled';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -16,30 +23,36 @@ export default function SignIn() {
 
   return (
     <>
-      <Title>登入帳號</Title>
+      <Typography align="center" component="h1" gutterBottom variant="h4">
+        登入帳號
+      </Typography>
       <Form onSubmit={handleSubmit}>
         <InputGroup>
-          <Input
+          <StyledTextField
+            fullWidth
             id="email"
+            label="電子信箱"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="電子信箱"
             required
             type="email"
             value={email}
           />
-          <Input
+          <StyledTextField
+            fullWidth
             id="password"
+            label="密碼"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="密碼"
             required
             type="password"
             value={password}
           />
         </InputGroup>
 
-        <Button type="submit">登入</Button>
+        <SubmitButton fullWidth size="large" type="submit" variant="contained">
+          登入
+        </SubmitButton>
 
         <LinkText>
           <Link href="/sign-up">還沒有帳號？立即註冊</Link>
